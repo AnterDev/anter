@@ -1,0 +1,26 @@
+[Unit]
+Description=anter's distributed currency daemon
+After=network.target
+
+[Service]
+User=anter
+Group=anter
+
+Type=forking
+PIDFile=/var/lib/anterd/anterd.pid
+
+ExecStart=/usr/bin/anterd -daemon -pid=/var/lib/anterd/anterd.pid \
+          -conf=/etc/anter/anter.conf -datadir=/var/lib/anterd
+
+ExecStop=-/usr/bin/anter-cli -conf=/etc/anter/anter.conf \
+         -datadir=/var/lib/anterd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

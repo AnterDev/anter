@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=anter
+Comment=anter P2P Cryptocurrency
+Comment[fr]=anter, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=anter, eşten eşe kriptografik sanal para birimi
+Exec=anter-qt %u
+Terminal=false
+Type=Application
+Icon=anter128
+MimeType=x-scheme-handler/anter;
+Categories=Office;Finance;

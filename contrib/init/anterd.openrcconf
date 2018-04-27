@@ -1,0 +1,26 @@
+# /etc/conf.d/anterd: config file for /etc/init.d/anterd
+
+# Config file location
+#BITCOIND_CONFIGFILE="/etc/anter/anter.conf"
+
+# What directory to write pidfile to?  (created and owned by $BITCOIND_USER)
+#BITCOIND_PIDDIR="/var/run/anterd"
+
+# What filename to give the pidfile
+#BITCOIND_PIDFILE="${BITCOIND_PIDDIR}/anterd.pid"
+
+# Where to write anterd data (be mindful that the blockchain is large)
+#BITCOIND_DATADIR="/var/lib/anterd"
+
+# User and group to own anterd process
+#BITCOIND_USER="anter"
+#BITCOIND_GROUP="anter"
+
+# Path to anterd executable
+#BITCOIND_BIN="/usr/bin/anterd"
+
+# Nice value to run anterd under
+#BITCOIND_NICE=0
+
+# Additional options (avoid -conf and -datadir, use flags above)
+BITCOIND_OPTS=""

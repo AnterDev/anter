@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  anterd The anter core server.
+#
+#
+# chkconfig: 345 80 20
+# description: anterd
+# processname: anterd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/anterd, see below
+if [ -f /etc/sysconfig/anterd ]; then
+        . /etc/sysconfig/anterd
+fi
+
+RETVAL=0
+
+prog=anterd
+# you can override the lockfile via BITCOIND_LOCKFILE in /etc/sysconfig/anterd
+lockfile=${BITCOIND_LOCKFILE-/var/lock/subsys/anterd}
+
+# anterd defaults to /usr/bin/anterd, override with BITCOIND_BIN
+bitcoind=${BITCOIND_BIN-/usr/bin/anterd}
+
+# anterd opts default to -disablewallet, override with BITCOIND_OPTS
+bitcoind_opts=${BITCOIND_OPTS}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $bitcoind $bitcoind_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac
