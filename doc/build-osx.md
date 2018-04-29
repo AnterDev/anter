@@ -44,7 +44,7 @@ Instructions: Homebrew
 
 1. Clone the github tree to get the source code and go into the directory.
 
-        git clone https://github.com/anterplatform/anter.git
+        git clone https://github.com/anterdev/anter.git
         cd anter
 
 2.  Build anterd:
