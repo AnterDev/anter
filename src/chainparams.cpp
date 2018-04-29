@@ -114,7 +114,7 @@ public:
         nModifierUpdateBlock = 510;
         nMaxMoneyOut = 95000000 * COIN;
 
-        const char* pszTimestamp = "Masternodes Europe 2018 april 27";
+        const char* pszTimestamp = "Masternodes NL Europe 2018 april 29";
         CMutableTransaction txNew;
         txNew.vin.resize(1);
         txNew.vout.resize(1);
@@ -125,13 +125,13 @@ public:
         genesis.hashPrevBlock = 0;
         genesis.hashMerkleRoot = genesis.BuildMerkleTree();
         genesis.nVersion = 1;
-        genesis.nTime = 1524844591;
+        genesis.nTime = 1525008463;
         genesis.nBits = 0x1e0ffff0;
         genesis.nNonce = 555227;
 
         hashGenesisBlock = genesis.GetHash();
 
-        assert(hashGenesisBlock == uint256("0x0000035440bf8b4963b89719c8b6da2a263fe14e08ebad24452e5e8bd13a4eee"));
+        assert(hashGenesisBlock == uint256(""));
         assert(genesis.hashMerkleRoot == uint256("0x7f8194c271618533614b0f0d001d0b05fb60985399cae2efbb9a40ec18259cca"));
 
         vSeeds.push_back(CDNSSeedData("anter1", "144.202.60.97"));
